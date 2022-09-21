@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%;">
+  <head>
+    <link rel="stylesheet" type="text/css" href="assets/styles/main.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimal-ui" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <title>TeeWorlds Web</title>
+  </head>
+  <body style="height:100%;margin:0;">
+  <canvas id="gamecanvas" width="800" height="600">
+  </canvas>
+  <div id="overlay" >
+    <div id="overlay-name">
+      <input id="overlay-input" type="text" placeholder="Enter player name"></input>
+      <button id="overlay-button">Start</input>
+    </div>
+    <div id="overlay-loading"></div>
+  </div>
+  <script>
+    let canvas = document.getElementById("gamecanvas");
+    let overlay = document.getElementById("overlay");
+    let overlayLoading = document.getElementById("overlay-loading");
+    let overlayName = document.getElementById("overlay-name");
+    let overlayInput = document.getElementById("overlay-input");
+    let overlayButton = document.getElementById("overlay-button");
+    overlayInput.addEventListener("keydown", submitName);
+    overlayButton.addEventListener("click", submitName);
+    let nameInserted = false;
+    let name = "";
+    let server = window.location.hash.slice(1);
+    if (localStorage.getItem("firstRun") != null) {
+      nameInserted = true;
+      overlayName.style.visibility = "hidden";
+    }
+    let loadingDone = false;
+    let rect = canvas.getBoundingClientRect();
+    canvas.style.height = rect.height+"px";
+    canvas.style.width = rect.width+"px";
+
+    function startLoadingScreen()
+    {
+      overlayLoading.innerText = "Loading..."
+    }
+    function updateLoadingScreen(perc)
+    {
+      overlayLoading.innerText = "Loading "+(perc|0)+"%"
+    }
+    function endLoadingScreen()
+    {
+      loadingDone = true;
+      if (nameInserted)
+        doLaunch();
+    }
+    function submitName(e)
+    {
+      if (e.target == overlayInput && e.keyCode != 13)
+        return;
+      if (overlayInput.value == "")
+        return;
+      name = overlayInput.value;
+      nameInserted = true;
+      overlayInput.disabled = true;
+      overlayButton.disabled = true;
+      if (loadingDone)
+        doLaunch();
+    }
+    function doLaunch()
+    {
+      overlayInstructions();
+      localStorage.setItem("firstRun", false);
+      let conf = "cl_show_welcome 0;";
+      if (name != "")
+        conf += "player_name " + name + ';';
+      if (server != "")
+        conf += "connect " + server + ';';
+      launch(conf);
+    }
+    function overlayInstructions()
+    {
+      overlay.innerHTML = `
+        <img id='teeworlds-small' src="assets/images/teeworlds.png">
+        <br>
+        <h2>Controls</h2>
+        <p>Move Left/Right: a / d</p>
+        <p>Jump: Space</p>
+        <p>Fire: Mouse1</p>
+        <p>Hook: Mouse2</p>
+        <p>Switch Weapon: Mouse Wheel / 1-5</p>
+        <p>Chat: t</p>
+        <p>Scoreboard: TAB</p>
+        <p>Back/Menu: F12</p>
+        <h2> Click to Play</h2>
+        <p>Powered by
+        <a href="https://leaningtech.com/cheerp"><img id="cheerp-small" src="assets/images/cheerp.png"></a>
+        </p>
+      `;
+    }
+    function loadGame()
+    {
+      startLoadingScreen();
+      let script = document.createElement("script");
+      script.src = "teeworlds.js";
+      document.body.appendChild(script);
+    }
+    function start()
+    {
+      // Basic detection of mobile browsers, add a button to play anyway to deal with false positives
+      let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if(isMobile)
+      {
+        overlay.innerHTML = "<h2>Sorry!</h2><p>This game requires a mouse, so it only works on desktop browsers</p><p><button onclick='loadGame()'>Play anyway</button></p>"
+      }
+      else
+      {
+        loadGame();
+      }
+    }
+    start();
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-database.js"></script>
+  </body>
+</html>
