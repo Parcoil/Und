@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Ubuntu);
 html, body {
-  background: #1f2223;
-  font-family: "Ubuntu";
+    background: #71F9DC;
+    font-family: "Ubuntu";
 }
 
 * {
@@ -32,16 +32,16 @@ html, body {
   opacity: 0.2;
   animation: shine 4s ease-in-out 3s infinite;
 }
-.box .box__ghost .symbol:nth-child(1):before, .box .box__ghost .symbol:nth-child(1):after {
-  content: "";
-  width: 12px;
-  height: 4px;
-  background: #6e6e6e;
-  position: absolute;
-  border-radius: 5px;
-  bottom: 65px;
-  left: 0;
-}
+    .box .box__ghost .symbol:nth-child(1):before, .box .box__ghost .symbol:nth-child(1):after {
+        content: "";
+        width: 12px;
+        height: 4px;
+        background: #A176FF;
+        position: absolute;
+        border-radius: 5px;
+        bottom: 65px;
+        left: 0;
+    }
 .box .box__ghost .symbol:nth-child(1):before {
   transform: rotate(45deg);
 }
