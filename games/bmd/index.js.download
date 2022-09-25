@@ -1,0 +1,97 @@
+$(document).ready(function(){	
+	
+     $("#SetToFullScreen,#SetToFullScreen2").click(function() {
+		console.log("request fullscreen");
+     	var elem = document.getElementById("game_frame");
+		if (elem.requestFullscreen) {
+		  elem.requestFullscreen();
+		} else if (elem.msRequestFullscreen) {
+		  elem.msRequestFullscreen();
+		} else if (elem.mozRequestFullScreen) {
+		  elem.mozRequestFullScreen();
+		} else if (elem.webkitRequestFullscreen) {
+		  elem.webkitRequestFullscreen();
+		}
+     });  
+	
+	$("#search_btn").click(function(){
+		$("#search-layout").show();
+		get_history();
+	});
+
+	$("#close_search").click(function(){
+		$("#search-layout").hide();
+	});
+     
+	 $("#open").toggle(function(){
+		$(this).addClass('btn_right');
+		$(this).find('button').addClass('F');
+		$("#panel").show();
+	},function(){
+	    $(this).removeClass('btn_right');
+		$(this).find('button').removeClass('F');
+		$("#panel").hide();
+	});
+
+	$("#search_game").focus(function(){
+		
+		if($(this).val() == 'search game') {
+			$(this).val('');
+		}
+	});
+	$("#search_game").blur(function(){
+		
+		if($(this).val() == '') {
+			$(this).val('search game');
+		}
+	});
+	$("#search_game").keyup(function(){
+		if($(this).val() != '' && $(this).val() != 'search game') {
+			$.ajax({
+				'url' : '/?s=index/ajax_search',
+				'data' : {'word':$(this).val()},
+				'dataType' : 'json',
+				'success' : function(data){
+					var html = '<span>No result..</span>';
+					if(data.list.length>0) {
+						html = '';
+						for(var i=0; i < data.list.length; i++) {
+							html += '<div class="game-item">'+
+				'<a href="'+data.list[i]['url']+'"><img class="" src="'+data.list[i]['thumb']+'" alt="'+data.list[i]['name']+'" style="display: block;"></a>'+
+			'</div>';
+						}
+					}
+					$("#search_result").html(html);
+				}
+			});
+		}
+		if($(this).val() == '' || $(this).val() == 'search game') {
+			$("#search_result").html('');
+		}
+		
+	});
+});
+
+function get_history() {
+	var playHistory = $.cookie('play_history');
+    if(playHistory == undefined) {
+        playHistory = '';
+    }
+	var ids = playHistory;
+    $.ajax({
+        'url':'/?s=index/ajax_ids',
+        'data':{'ids': ids},
+        'type' : 'post',
+        'dataType' : 'json',
+        'success' : function(data) {
+            var html = '';
+            for(var i=0; i < data.list.length; i++) {
+                html += '<div class="game-item">'+
+				'<a href="'+data.list[i]['url']+'"><img class="" src="'+data.list[i]['thumb']+'" alt="'+data.list[i]['name']+'" style="display: block;"></a>'+
+			'</div>';
+            }
+            $("#history_list").html(html);
+        }
+    });
+
+}
