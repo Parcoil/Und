@@ -1,0 +1,17 @@
+{
+  "cSpell.words": [
+    "Shootable",
+    "flac",
+    "godmode",
+    "medkit",
+    "nightmode",
+    "noclip",
+    "nukem",
+    "predeploy",
+    "skybox",
+    "uglifyjs",
+    "wolfenstein",
+    "yurkagon"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
