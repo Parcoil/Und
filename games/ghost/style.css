@@ -220,14 +220,14 @@ html, body {
   position: relative;
   background: #2e3033;
   border: 1px solid transparent;
-  border-radius: 50px;
-  height: 50px;
+  border-radius: 25px;
+  height: 25px;
   text-align: center;
   text-decoration: none;
   color: #c7c7c7;
-  line-height: 50px;
-  font-size: 18px;
-  padding: 0 70px;
+  line-height: 25px;
+  font-size: 9px;
+  padding: 0 35px;
   white-space: nowrap;
   margin-top: 25px;
   transition: background 0.5s ease;
@@ -236,8 +236,8 @@ html, body {
 .box .box__description .box__button:before {
   content: "";
   position: absolute;
-  width: 20px;
-  height: 100px;
+  width: 10px;
+  height: 50px;
   background: #fff;
   bottom: -25px;
   left: 0;
@@ -250,7 +250,7 @@ html, body {
   border-color: #fff;
 }
 .box .box__description .box__button:hover:before {
-  transform: translateX(250px) rotate(45deg);
+  transform: translateX(125px) rotate(45deg);
 }
 
 @keyframes upndown {
