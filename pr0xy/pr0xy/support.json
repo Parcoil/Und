@@ -1,0 +1,18 @@
+[
+    {
+        "question": "A page is not functioning or loading on the proxy",
+        "answer": "Our web servers are either under really high load, or the web page you tried accessing is not currently supported."
+    },
+    {
+        "question": "Is my information secure",
+        "answer": "Incognito, in its unmodified state from its <a href=\"https://github.com/amethystnetwork-dev/Incognito\">Git&#173;Hu&#173;b repo</a>, does not collect your data. However, users can host thier own instance of this website that could have been modified to collect user data"
+    },
+    {
+        "question": "Why is GeForce Now is responding with \"403 Access Denied\"",
+        "answer": "At the moment, too many people are using GeForce Now on our servers. Try again later."
+    },
+    {
+        "question": "Google login is saying this app is insecure",
+        "answer": "At the moment, Google login is not supported for @gmail accounts. However, it is supported for GSuite accounts (School / work email)."
+    }
+]
