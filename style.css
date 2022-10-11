@@ -27,7 +27,7 @@
   width: 40px;
   height: 40px;
   z-index: 9;
-  background-image: url(https://rafaelavlucas.github.io/assets/codepen/logo_white.svg);
+  background-image: url(https://i.imgur.com/T8pBvdI.png);
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: 10px 7px;
@@ -53,23 +53,7 @@
   opacity: 0;
   border-radius: 100%;
 }
-.about .social.portfolio {
-  transition: all 0.8s ease;
-}
-.about .social.portfolio .icon {
-  background-image: url(https://rafaelavlucas.github.io/assets/codepen/link.svg);
-}
-.about .social.dribbble {
-  transition: all 0.3s ease;
-}
-.about .social.dribbble .icon {
-  background-image: url(https://rafaelavlucas.github.io/assets/codepen/dribbble.svg);
-}
-.about .social.linkedin {
-  transition: all 0.8s ease;
-}
-.about .social.linkedin .icon {
-  background-image: url(https://rafaelavlucas.github.io/assets/codepen/linkedin.svg);
+
 }
 .about:hover {
   width: 105px;
