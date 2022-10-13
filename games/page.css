@@ -37551,14 +37551,14 @@ a.u-link.u-text-hover-grey-90:hover {
         .u-table-alt-custom-color-1 tr:nth-child(even)
         {
             color: #ffffff;
-            background-color: #8f5bff;
+            background-color: #DEDEDE;
         }
 
         .u-button-style.u-custom-color-1,
         .u-button-style.u-custom-color-1[class*="u-border-"]
         {
             color: #ffffff !important;
-            background-color: #8f5bff !important;
+            background-color: #DEDEDE !important;
         }
 
         .u-button-style.u-custom-color-1:hover,
@@ -37953,14 +37953,14 @@ a.u-link.u-text-hover-grey-90:hover {
         .u-border-custom-color-4,
         .u-separator-custom-color-4:after
         {
-            border-color: #dedede;
-            stroke: #dedede;
+            border-color: #383838;
+            stroke: #383838;
         }
 
         .u-button-style.u-border-custom-color-4
         {
-            border-color: #dedede !important;
-            color: #dedede !important;
+            border-color: #383838 !important;
+            color: #383838 !important;
             background-color: transparent !important;
         }
 
