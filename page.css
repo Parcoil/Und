@@ -1869,7 +1869,7 @@ a {
   flex-shrink: 1;
   min-width: 0px;
 }
-.u-label-none:not(.u-form-agree):not(.u-form-checkbox):not(.u-form-checkbox-group):not(.u-form-radiobutton) label {
+.u-label-none:not(.u-form-agree):not(.u-form-checkbox) > label {
   display: none !important;
 }
 .u-form-horizontal .input-group {
@@ -2217,7 +2217,7 @@ a {
   margin-top: 0.5em;
   margin-bottom: 0;
 }
-.u-form-text .u-text {
+.u-form-text.u-text {
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -2244,15 +2244,24 @@ a {
 .u-form-input-layout-horizontal .u-form-checkbox-group-wrapper .u-input-row {
   margin-right: 1em;
 }
-.u-rating-icons {
+.u-form-rating .u-input-hidden {
+  height: 100%;
+  width: 0 !important;
+  opacity: 0;
+  flex-grow: 0;
+  float: right;
+  display: block;
+  border: none;
+  pointer-events: none;
+  margin-left: -12%;
+}
+.u-form-rating .u-rating-icons {
   display: flex;
 }
-.u-rating-icons .u-form-rating-item {
+.u-form-rating .u-rating-icons .u-form-rating-item {
   display: inline;
   line-height: 0;
-}
-.u-rating-icons .u-passive-icon {
-  display: none;
+  cursor: pointer;
 }
 .u-form-horizontal .u-form-rating.u-form-group {
   display: none;
@@ -39173,7 +39182,7 @@ a.u-link.u-text-hover-grey-90:hover {
   font-size: 0.875rem;
   box-shadow: 2px 0 0 0 rgba(0,0,0,0);
   transition-duration: 0.5s;
-  margin: 14px -89px 0 auto;
+  margin: 11px -89px 0 auto;
   padding: 1px 25px 1px 24px;
 }
 
@@ -39181,7 +39190,7 @@ a.u-link.u-text-hover-grey-90:hover {
   font-size: 0.875rem;
   box-shadow: 2px 0 0 0 rgba(0,0,0,0);
   transition-duration: 0.5s;
-  margin: 14px -58px 0 auto;
+  margin: 11px -58px 0 auto;
   padding: 1px 25px 1px 24px;
 }
 
@@ -39194,18 +39203,18 @@ a.u-link.u-text-hover-grey-90:hover {
   box-shadow: 2px 2px 8px 0px rgba(128,128,128,1);
   font-weight: 700;
   background-image: none;
-  margin: -14px auto 0 -118px;
+  margin: 5px auto 0 -100px;
   padding: 4px 7px 4px 6px;
 }
 
 .u-header .u-text-1 {
-  width: 276px;
-  margin: -26px auto 0;
+  width: 301px;
+  margin: -40px auto 0;
 }
 
 .u-header .u-text-2 {
   width: 220px;
-  margin: 0 auto 14px;
+  margin: 1px auto 14px;
 }
 @media (max-width: 1199px) {
   .u-header .u-btn-1 {
@@ -39230,19 +39239,18 @@ a.u-link.u-text-hover-grey-90:hover {
   }
 
   .u-header .u-btn-6 {
-    margin-top: -14px;
     margin-left: 0;
     padding: 5px 17px 6px 16px;
   }
 
   .u-header .u-text-1 {
-    width: 276px;
-    margin-top: -26px;
-    margin-bottom: 41px;
+    width: 301px;
+    margin-top: -40px;
   }
 
   .u-header .u-text-2 {
     width: 220px;
+    margin-top: 41px;
   }
 }
 @media (max-width: 991px) {
@@ -39253,7 +39261,10 @@ a.u-link.u-text-hover-grey-90:hover {
 
   .u-header .u-text-1 {
     margin-top: 20px;
-    margin-bottom: 43px;
+  }
+
+  .u-header .u-text-2 {
+    margin-top: 43px;
   }
 }
 @media (max-width: 767px) {
@@ -39261,8 +39272,8 @@ a.u-link.u-text-hover-grey-90:hover {
     margin-top: 40px;
   }
 
-  .u-header .u-text-1 {
-    margin-bottom: 14px;
+  .u-header .u-text-2 {
+    margin-top: 14px;
   }
 }
 @media (max-width: 575px) {
