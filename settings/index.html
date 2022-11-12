@@ -37,14 +37,14 @@
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5756835229788588" crossorigin="anonymous"></script>
       </div>
 	  <div class="blank">
-	      <button class="blank">About:Blank Cloacking</button>
+	      <button class="button">About:Blank Cloacking</button>
     <script>
       var urlObj = new window.URL(window.location.href);
       var url = "https://mettet.ml";
       if (url) {
         var win;
  
-        document.querySelector('blank').onclick = function() {
+        document.querySelector('button').onclick = function() {
           if (win) {
             win.focus();
           } else {
@@ -59,8 +59,8 @@
             iframe.src = url;
             win.document.body.appendChild(iframe);
           }
-          document.querySelector('blank').style.bacground = 'grey';
-          document.querySelector('blank').innerHTML = "About:Blank Cloacking";
+          document.querySelector('button').style.bacground = 'grey';
+          document.querySelector('button').innerHTML = "About:Blank Cloacking";
         };
       }
  
