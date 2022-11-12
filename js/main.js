@@ -36,6 +36,11 @@ const tabCloak = document.createElement("script");
 tabCloak.setAttribute("src", "/js/tab_cloak.js");
 document.head.append(tabCloak);
 script("Injected script 2/5");
+
+const arc = document.createElement("script");
+arc.setAttribute("async", "");
+arc.setAttribute("src", "");
+document.head.append(arc);
 script("Injected script 3/5");
 
 const adblock = document.createElement("script");
